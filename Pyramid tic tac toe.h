@@ -47,7 +47,7 @@ using namespace std;
 
 
 
-// Constructor for X_O_Board
+// Constructor for Pyramid_Board
 template <typename T>
 Pyramid_Board<T>::Pyramid_Board() {
     this->rows = 5;  // Maximum number of rows
