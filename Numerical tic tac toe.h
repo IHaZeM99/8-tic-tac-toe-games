@@ -75,7 +75,7 @@ bool Numerical_Board<T>::found_in_available_nums(int num){
 template<typename T>
 bool Numerical_Board<T>::update_board(int x, int y, T mark) {
     // Only update if move is valid
-    if ((this->board[x][y] == 0|| mark == 0) && found_in_available_nums(mark)) {
+    if (y <= this->columns && x <= this->rows -1  && (this->board[x][y] == 0|| mark == 0) && found_in_available_nums(mark)) {
         if (mark == 0){
             this->n_moves--;
             this->board[x][y] = 0;
