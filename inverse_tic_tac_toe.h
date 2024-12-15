@@ -1,3 +1,4 @@
+
 //
 // Created by Hazem Ahmed on 12/13/2024.
 //
@@ -64,6 +65,9 @@ Inverse_X_O_Board<T>::Inverse_X_O_Board() {
     }
     this->n_moves = 0;
     game_over = 0;
+    ISWIN = false;
+    COUNT = 0;
+    END = false;
 }
 
 template <typename T>

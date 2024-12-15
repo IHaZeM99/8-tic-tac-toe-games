@@ -61,6 +61,7 @@ _5x5_Board<T>::_5x5_Board() {
     }
     this->n_moves = 0;
     flag = false;
+    END_5x5 = false;
 }
 
 template <typename T>
