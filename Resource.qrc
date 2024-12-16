@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/Resource">
+        <file>img/logo_main.png</file>
+        <file>img/logo_5x5.png</file>
+        <file>img/logo_4x4.png</file>
+        <file>img/logo_inverse.png</file>
+        <file>img/logo_numercal.png</file>
+        <file>img/logo_pyramid.png</file>
+        <file>img/logo_ultimate.png</file>
+        <file>img/logo_word.png</file>
+        <file>img/logo_connect_4 (2).png</file>
+        <file>img/logo_connect_4.png</file>
+        <file>img/back_logo.png</file>
+    </qresource>
+    <qresource prefix="/sound">
+        <file>sound/draw_sound_wav.wav</file>
+        <file>sound/sound_main.wav</file>
+        <file>sound/sound_O.wav</file>
+        <file>sound/sound_X.wav</file>
+        <file>sound/win.wav</file>
+    </qresource>
+</RCC>
