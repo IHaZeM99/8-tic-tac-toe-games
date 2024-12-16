@@ -146,12 +146,44 @@ Numerical_Player<T>::Numerical_Player(std::string name, T symbol):Player<T>(name
 
 template <typename T>
 void Numerical_Player<T>::getmove(int& x, int& y) {
-    cout << "\nPlease enter your move x and y (0 to 2) separated by spaces: ";
-    cin >> x >> y;
-    int num;
-    cout << "\n\nPlease enter your Number" << endl;
-    cin >> num;
-    this->symbol = num;
+    while(true) {
+        cout << "\nPlease enter your move x and y (0 to 2) separated by spaces: ";
+        cin >> x >> y;
+
+        if(cin.fail()){
+            cout << "Invalid input. Please enter integers for x and y.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        if (x >= 0 && x <= 2 && y >= 0 && y <= 2) {
+            break;
+        }
+
+        else{
+            cout << "Invalid input. Please enter integers for x and y.\n";
+            cout << setfill('-') << setw(37) << "" <<'\n';
+
+        }
+
+    }
+    while (true) {
+
+        int symb;
+        cout << "\n\nPlease enter your number: ";
+        cin >> symb;
+        if(cin.fail()){
+            cout << "Invalid input. Please enter a single character.\n";
+            cout << setfill('-') << setw(37) << "" <<'\n';
+
+            cin.clear(); // Clears the error flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignores incorrect input
+        }
+        else if(isdigit(symb)){
+
+            this->symbol = symb;
+            break;
+        }
+    }
 
 }
 

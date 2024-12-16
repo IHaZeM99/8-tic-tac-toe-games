@@ -157,8 +157,26 @@ Four_in_Row_Player<T>::Four_in_Row_Player(string name, T symbol) : Player<T>(nam
 
 template <typename T>
 void Four_in_Row_Player<T>::getmove(int& x, int& y) {
-    cout << "\nPlease enter your move x and y (0 to 2) separated by spaces: ";
-    cin >> x >> y;
+    while(true) {
+        cout << "\nPlease enter your move x and y (0 to 6) separated by spaces: ";
+        cin >> x >> y;
+
+        if(cin.fail()){
+            cout << "Invalid input. Please enter integers for x and y.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        if (x >= 0 && x <= 5 && y >= 0 && y <= 6) {
+            break;
+        }
+
+        else{
+            cout << "Invalid input. Please enter integers for x and y.\n";
+            cout << setfill('-') << setw(37) << "" <<'\n';
+
+        }
+
+    }
 }
 
 // Constructor for Four_in_Row_Random_Player

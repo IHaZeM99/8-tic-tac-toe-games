@@ -190,8 +190,25 @@ void _5x5_Player<T>::getmove(int& x, int& y) {
         y = rand() % 5;
         return;
     }
-    cout << "\nPlease enter your move x and y (0 to 4) separated by spaces: ";
-    cin >> x >> y;
+    while(true) {
+        cout << "\nPlease enter your move x and y (0 to 4) separated by spaces: ";
+        cin >> x >> y;
+        if(cin.fail()){
+            cout << "Invalid input. Please enter integers for x and y.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        if (x >= 0 && x <= 4 && y >= 0 && y <= 4 ) {
+            break;
+        }
+        else{
+            cout << "Invalid input. Please enter integers for x and y.\n";
+            cout << setfill('-') << setw(37) << "" <<'\n';
+
+        }
+
+    }
 }
 
 //--------------------------------------

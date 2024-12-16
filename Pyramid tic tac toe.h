@@ -1,6 +1,4 @@
-//
-// Created by adamm on 11/26/2024.
-//
+
 
 #ifndef PYRAMID_TIC_TAC_TOE_PYRAMID_TIC_TAC_TOE_H
 #define PYRAMID_TIC_TAC_TOE_PYRAMID_TIC_TAC_TOE_H
@@ -47,7 +45,7 @@ using namespace std;
 
 
 
-// Constructor for Pyramid_Board
+// Constructor for X_O_Board
 template <typename T>
 Pyramid_Board<T>::Pyramid_Board() {
     this->rows = 5;  // Maximum number of rows
@@ -133,18 +131,30 @@ template <typename T>
 void Pyramid_Board<T>::display_board() {
 
 
-    for (int i = 0; i < this->rows; i++) {
-        for (int j = 0; j < this->columns; j++) {
-            if (j >= 2 - i && j <= 2 + i) {  // Example condition for a centered pyramid
-                cout << setw(3) << this->board[i][j];
-            } else {
-                cout << "   ";  // Leave empty space for unused cells
-            }
-        }
-        cout << endl;
+    cout << "\n                     || (0,2) " << this->board[0][2] << " || ";
+    cout << "\n------------------------------------------------------------\n";
+    cout << "           ";
+    for (int i = 1; i < 4; i++) {
+        cout << "| ";
+
+            cout << "(" << 1 << "," << i << ")";
+            cout << setw(2) << this->board[1][i] << " |";
+
     }
 
+    cout << "\n------------------------------------------------------------\n";
 
+    for (int i = 0; i < 5; i++) {
+        cout << "| ";
+
+        cout << "(" << 2 << "," << i << ")";
+        cout << setw(2) << this->board[2][i] << " |";
+
+    }
+
+    cout << "\n------------------------------------------------------------\n";
+
+    cout << endl;
 }
 
 //--------------------------------------
@@ -156,8 +166,30 @@ Pyramid_Player<T>::Pyramid_Player(string name, T symbol) : Player<T>(name, symbo
 
 template <typename T>
 void Pyramid_Player<T>::getmove(int& x, int& y) {
-    cout << "\nPlease enter your move x and y (0 to 4) separated by spaces: ";
-    cin >> x >> y;
+    while(true) {
+        cout << "\nPlease enter your move x and y (0 to 4) separated by spaces: ";
+        cin >> x >> y;
+
+        if(cin.fail()){
+            cout << "Invalid input. Please enter integers for x and y.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        if((x == 0 && y != 2) || (x == 1 && (y == 0 || y == 4))){
+            cout << "Invalid input. Please enter integers for x and y.\n";
+            cout << setfill('-') << setw(37) << "" <<'\n';
+        }
+        else if (x >= 0 && x <= 4 && y >= 0 && y <= 4 ) {
+            break;
+        }
+        else{
+            cout << "Invalid input. Please enter integers for x and y.\n";
+            cout << setfill('-') << setw(37) << "" <<'\n';
+
+        }
+
+    }
 }
 
 // Constructor for X_O_Random_Player
